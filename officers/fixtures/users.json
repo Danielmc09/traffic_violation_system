@@ -1,0 +1,38 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "admin1",
+      "password": "pbkdf2_sha256$720000$6M7XLf0BrGyxleUxAalH7N$0y9nxAgOaifHZy1X44ADHK1mBmcZrfGt89CgivQUy18=",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-30T00:00:00Z"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "officer1",
+      "password": "pbkdf2_sha256$720000$skd6RqiG9JqYENh8yFUZ5A$l4fE3CXnVG0jD96ns4pHAh2uyzdLZ38XNFm/OKSGSWE=",
+      "is_superuser": false,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-30T00:00:00Z"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "officer2",
+      "password": "pbkdf2_sha256$720000$yjFGC98vUONI5XOEY23b17$+oNdR0iUcOEzO2vZkGPFPogu3xkyizzDk84pQ9RGCm0=",
+      "is_superuser": false,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-30T00:00:00Z"
+    }
+  }
+]

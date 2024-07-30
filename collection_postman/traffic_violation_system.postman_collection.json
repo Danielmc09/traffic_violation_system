@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "3f19a91d-9605-49bc-9d51-864a9ab1cce0",
+		"name": "traffic_violation_system",
+		"description": "La colección \"Traffic Violation System\" contiene un conjunto de endpoints diseñados para gestionar las infracciones de tráfico. Incluye funcionalidades para la autenticación de oficiales, el registro de infracciones y la generación de informes. Esta colección permite a los usuarios interactuar con el sistema de forma eficiente, asegurando que todas las solicitudes estén autenticadas y procesadas correctamente.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11211559",
+		"_collection_link": "https://www.postman.com/restless-comet-941245/workspace/studenttest/collection/11211559-3f19a91d-9605-49bc-9d51-864a9ab1cce0?action=share&source=collection_link&creator=11211559"
+	},
+	"item": [
+		{
+			"name": "obtain token",
+			"item": [
+				{
+					"name": "obtain-token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Script para almacenar el token en una variable de entorno",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"auth_token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "officer1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "p4ssw0rd1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/officers/obtain-token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"officers",
+								"obtain-token",
+								""
+							]
+						},
+						"description": "Este endpoint se utiliza para obtener un token de autenticación para un oficial. Se debe proporcionar el `username` y el `password` del oficial en el cuerpo de la solicitud. Una vez autenticado, se recibe un token que se debe usar para las siguientes solicitudes autenticadas."
+					},
+					"response": []
+				}
+			],
+			"description": "Esta carpeta contiene el endpoint necesario para autenticar a los oficiales y obtener un token de autenticación. El token obtenido debe ser utilizado en las solicitudes subsecuentes para asegurar que el usuario está autorizado para realizar dichas acciones."
+		},
+		{
+			"name": "violations",
+			"item": [
+				{
+					"name": "Cargar infracción",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"placa_patente\": \"ABC123\",\n  \"timestamp\": \"2024-07-30T15:53:00Z\",\n  \"comentarios\": \"Estacionado en lugar prohibido\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/violations/cargar_infraccion/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"violations",
+								"cargar_infraccion",
+								""
+							]
+						},
+						"description": "Este endpoint permite registrar una nueva infracción de tránsito. La solicitud debe incluir la información de la infracción, como la placa del vehículo, el timestamp de la infracción y los comentarios del oficial."
+					},
+					"response": []
+				},
+				{
+					"name": "generar informes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/violations/generar_informe/john@example.com/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"violations",
+								"generar_informe",
+								"john@example.com",
+								""
+							]
+						},
+						"description": "Este endpoint genera un informe de todas las infracciones registradas y lo envía al correo electrónico especificado. No se requieren parámetros en el cuerpo de la solicitud, solo el correo electrónico en la URL."
+					},
+					"response": []
+				}
+			],
+			"description": "Esta carpeta contiene los endpoints necesarios para gestionar las infracciones de tráfico. Incluye funcionalidades para registrar nuevas infracciones y generar informes de infracciones."
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "default"
+		}
+	]
+}
