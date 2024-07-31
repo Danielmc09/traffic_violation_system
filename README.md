@@ -172,7 +172,8 @@ En la carpeta `collection_postman`, encontrarás dos archivos:
 - **Ejemplo de Respuesta**:
   ```json
   {
-    "token": "your_generated_token_here"
+    "refresh": "your_refresh_token",
+    "access": "your_access_token"
   }
   ```
 
