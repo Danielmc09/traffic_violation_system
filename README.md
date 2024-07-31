@@ -259,4 +259,4 @@ En la carpeta `collection_postman`, encontrarás dos archivos:
   ]
   ```
 
-Autor: <a href="https://www.linkedin.com/in/danielmendietadeveloper/">Angel Daniel Mendieta Castillo</a> © 2023
+Autor: <a href="https://www.linkedin.com/in/danielmendietadeveloper/">Angel Daniel Mendieta Castillo</a> © 2024
