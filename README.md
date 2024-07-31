@@ -150,11 +150,11 @@ En la carpeta `collection_postman`, encontrarás dos archivos:
 
 | Endpoint                                  | Método | Descripción                                                                                      | Requiere Autenticación |
 |-------------------------------------------|--------|--------------------------------------------------------------------------------------------------|------------------------|
-| `/api/officers/obtain-token/`             | POST   | Obtener un token de autenticación para un oficial.                                               | No                     |
+| `/api/token/`                             | POST   | Obtener un token de autenticación para un oficial.                                               | No                     |
 | `/api/violations/cargar_infraccion/`      | POST   | Registrar una nueva infracción de tráfico.                                                       | Sí                     |
 | `/api/violations/generar_informe/<email>/`| GET    | Generar un informe de infracciones basadas en el correo electrónico del propietario del vehículo.| No                     |
 
-#### `/api/officers/obtain-token/`
+#### `/api/token/`
 
 - **Método**: POST
 - **Descripción**: Obtener un token de autenticación para un oficial.
