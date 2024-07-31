@@ -5,7 +5,7 @@ from .models import Violation
 from .serializers import ViolationSerializer
 from vehicles.models import Vehicle
 from officers.models import Officer
-from rest_framework.authentication import TokenAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from datetime import datetime
 
@@ -17,7 +17,7 @@ class CargarInfraccionView(views.APIView):
         Methods:
             post(request): Crea una nueva infracción de tráfico.
     """
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def post(self, request):

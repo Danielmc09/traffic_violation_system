@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "3f19a91d-9605-49bc-9d51-864a9ab1cce0",
+		"_postman_id": "00750048-e2ee-4387-9db0-658cec5ccf19",
 		"name": "traffic_violation_system",
 		"description": "La colección \"Traffic Violation System\" contiene un conjunto de endpoints diseñados para gestionar las infracciones de tráfico. Incluye funcionalidades para la autenticación de oficiales, el registro de infracciones y la generación de informes. Esta colección permite a los usuarios interactuar con el sistema de forma eficiente, asegurando que todas las solicitudes estén autenticadas y procesadas correctamente.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11211559",
-		"_collection_link": "https://www.postman.com/restless-comet-941245/workspace/studenttest/collection/11211559-3f19a91d-9605-49bc-9d51-864a9ab1cce0?action=share&source=collection_link&creator=11211559"
+		"_collection_link": "https://www.postman.com/restless-comet-941245/workspace/studenttest/collection/11211559-00750048-e2ee-4387-9db0-658cec5ccf19?action=share&source=collection_link&creator=11211559"
 	},
 	"item": [
 		{
@@ -20,7 +20,7 @@
 								"exec": [
 									"// Script para almacenar el token en una variable de entorno",
 									"var jsonData = pm.response.json();",
-									"pm.environment.set(\"auth_token\", jsonData.token);"
+									"pm.environment.set(\"auth_token\", jsonData.access);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -31,28 +31,21 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "officer1",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "p4ssw0rd1",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"officer1\",\n    \"password\": \"p4ssw0rd1\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
-							"raw": "{{base_url}}/officers/obtain-token/",
+							"raw": "{{base_url}}/token/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"officers",
-								"obtain-token",
+								"token",
 								""
 							]
 						},
@@ -69,17 +62,21 @@
 				{
 					"name": "Cargar infracción",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Token {{auth_token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"placa_patente\": \"ABC123\",\n  \"timestamp\": \"2024-07-30T15:53:00Z\",\n  \"comentarios\": \"Estacionado en lugar prohibido\"\n}",
+							"raw": "{\n  \"placa_patente\": \"ABC123\",\n  \"timestamp\": \"2024-07-31T15:53:00Z\",\n  \"comentarios\": \"Estacionado en lugar prohibido\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
