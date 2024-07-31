@@ -126,6 +126,26 @@ python manage.py test
 Esto ejecutará todas las pruebas unitarias y mostrará los resultados en la consola.
 ## Uso
 
+### Colecciones de Postman
+
+En la carpeta `collection_postman`, encontrarás dos archivos:
+
+1. `traffic_violation_system.postman_collection.json`: Contiene las solicitudes configuradas para la API.
+2. `traffic_violations_system.postman_environment.json`: Contiene la configuración del entorno para la API.
+
+#### Importar Colecciones de Postman
+
+1. Abre Postman.
+2. Haz clic en **"Import"** en la esquina superior izquierda.
+3. Selecciona los archivos `collection_postman/traffic_violation_system.postman_collection.json` y `collection_postman/traffic_violations_system.postman_environment.json` desde la carpeta `collection_postman`.
+
+#### Configurar el entorno importado
+
+1. Después de importar los archivos, ve a la pestaña **"Environments"** en Postman.
+2. Selecciona el entorno `traffic_violations_system`.
+3. Asegúrate de que la variable `base_url` esté configurada correctamente, por ejemplo: `http://127.0.0.1:8000/api`.
+4. La variable `auth_token` se actualizará automáticamente después de obtener el token de autenticación usando el endpoint `/api/officers/obtain-token/`.
+
 ### Endpoints de la API
 
 | Endpoint                                  | Método | Descripción                                                                                      | Requiere Autenticación |
@@ -237,26 +257,5 @@ Esto ejecutará todas las pruebas unitarias y mostrará los resultados en la con
     }
   ]
   ```
-
-### Colecciones de Postman
-
-En la carpeta `collection_postman`, encontrarás dos archivos:
-
-1. `traffic_violation_system.postman_collection.json`: Contiene las solicitudes configuradas para la API.
-2. `traffic_violations_system.postman_environment.json`: Contiene la configuración del entorno para la API.
-
-#### Importar Colecciones de Postman
-
-1. Abre Postman.
-2. Haz clic en **"Import"** en la esquina superior izquierda.
-3. Selecciona los archivos `collection_postman/traffic_violation_system.postman_collection.json` y `collection_postman/traffic_violations_system.postman_environment.json` desde la carpeta `collection_postman`.
-
-#### Configurar el entorno importado
-
-1. Después de importar los archivos, ve a la pestaña **"Environments"** en Postman.
-2. Selecciona el entorno `traffic_violations_system`.
-3. Asegúrate de que la variable `base_url` esté configurada correctamente, por ejemplo: `http://127.0.0.1:8000/api`.
-4. La variable `auth_token` se actualizará automáticamente después de obtener el token de autenticación usando el endpoint `/api/officers/obtain-token/`.
-
 
 Autor: <a href="https://www.linkedin.com/in/danielmendietadeveloper/">Angel Daniel Menideta Castillo</a> © 2023
