@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', secrets.token_urlsafe(50))
 DEBUG = True
 
 # Definir ALLOWED_HOSTS
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,0.0.0.0').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,0.0.0.0,127.0.0.1').split(',')
 
 # Rest Framework
 
