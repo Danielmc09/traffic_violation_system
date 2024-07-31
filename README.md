@@ -116,6 +116,14 @@ Inicia el servidor de desarrollo de Django:
 python manage.py runserver
 ```
 
+## 8. Ejecución de Pruebas
+
+El proyecto incluye pruebas unitarias para garantizar el correcto funcionamiento de la aplicación. Para ejecutar las pruebas, usa el siguiente comando:
+
+```bash
+python manage.py test
+```
+Esto ejecutará todas las pruebas unitarias y mostrará los resultados en la consola.
 ## Uso
 
 ### Endpoints de la API
