@@ -144,7 +144,7 @@ En la carpeta `collection_postman`, encontrarás dos archivos:
 1. Después de importar los archivos, ve a la pestaña **"Environments"** en Postman.
 2. Selecciona el entorno `traffic_violations_system`.
 3. Asegúrate de que la variable `base_url` esté configurada correctamente, por ejemplo: `http://127.0.0.1:8000/api`.
-4. La variable `auth_token` se actualizará automáticamente después de obtener el token de autenticación usando el endpoint `/api/officers/obtain-token/`.
+4. La variable `auth_token` se actualizará automáticamente después de obtener el token de autenticación usando el endpoint `/api/token/`.
 
 ### Endpoints de la API
 
